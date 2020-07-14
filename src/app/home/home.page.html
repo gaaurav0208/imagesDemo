@@ -5,22 +5,23 @@
     </ion-title>
   </ion-navbar>
 </ion-header>
- 
 
 <ion-content fullscreen>
   <ion-list>
     <ion-grid>
       <ion-row>
-    <ion-item *ngFor="let i of images">
-        <img [src]="i" (click)="gotoDetail(i)">
-    </ion-item>
-   </ion-row>
-   </ion-grid>
+        <ion-item *ngFor="let i of images">
+          <img [src]="i" (click)="gotoDetail(i)" />
+        </ion-item>
+      </ion-row>
+    </ion-grid>
+  </ion-list>
 
- </ion-list>
-
- <ion-infinite-scroll #infiniteScroll (ionInfinite)="loadData($event)">
-  <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
-  </ion-infinite-scroll-content>
-</ion-infinite-scroll>
+  <ion-infinite-scroll #infiniteScroll (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading more data..."
+    >
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>
