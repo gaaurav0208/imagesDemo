@@ -5,5 +5,10 @@
 </ion-header>
 
 <ion-content>
-  <img [src]="url" />
+  
+  <ion-slides #slides style="height:100%;width:100%">
+    <ion-slide *ngFor="let image of images; index as i" style="height:100%;width:100%"> 
+      <img [src]="image" />
+    </ion-slide>
+  </ion-slides>
 </ion-content>

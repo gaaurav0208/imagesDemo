@@ -8,6 +8,7 @@ import { catchError, map, tap } from "rxjs/operators";
 })
 export class ImageService {
   private imagesURL = "http://www.mocky.io/v2/5daffe6d2f00001172c1374b"; // URL to web api
+  images: any[];
 
   httpOptions = {
     headers: new HttpHeaders({ "Content-Type": "application/json" }),
@@ -44,5 +45,15 @@ export class ImageService {
       tap((_) => this.log("fetched anyes")),
       catchError(this.handleError<any[]>("getanyes", []))
     );
+  }
+
+  setImages(images) {
+    this.images = images;
+  }
+
+  getImage(index: number) {
+    if (index >= 0 && index < this.images.length) {
+      return this.images[index];
+    }
   }
 }

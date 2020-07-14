@@ -23,21 +23,6 @@ export class HomePage implements OnInit {
     this.getImages();
   }
 
-  doInfinite(): Promise<any> {
-    console.log("Begin async operation");
-
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        for (var i = 0; i < 10; i++) {
-          this.images.push(this.images[i]);
-        }
-
-        console.log("Async operation has ended");
-        resolve();
-      }, 500);
-    });
-  }
-
   loadData(event) {
     this.imageService.getImages().subscribe((data) => {
       data.pugs.forEach((element) => {
@@ -56,6 +41,7 @@ export class HomePage implements OnInit {
   getImages() {
     this.imageService.getImages().subscribe((images) => {
       this.images = images.pugs;
+      this.imageService.setImages(images);
       console.log(this.images);
     });
   }
@@ -64,8 +50,8 @@ export class HomePage implements OnInit {
     return "url(" + image + ")";
   }
 
-  gotoDetail(image) {
+  gotoDetail(image, index) {
     console.log(image);
-    this.router.navigate(["/detail"], { queryParams: { url: image } });
+    this.router.navigate(["/detail"], { queryParams: { url: image, index } });
   }
 }

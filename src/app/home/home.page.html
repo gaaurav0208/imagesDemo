@@ -10,8 +10,8 @@
   <ion-list>
     <ion-grid>
       <ion-row>
-        <ion-item *ngFor="let i of images">
-          <img [src]="i" (click)="gotoDetail(i)" />
+        <ion-item *ngFor="let image of images; index as i">
+          <img [src]="image" (click)="gotoDetail(image, i)" />
         </ion-item>
       </ion-row>
     </ion-grid>
