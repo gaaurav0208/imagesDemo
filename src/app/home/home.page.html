@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Image Gallery
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+ 
+
+<ion-content fullscreen>
+  <ion-list>
+    <ion-grid>
+      <ion-row>
+    <ion-item *ngFor="let i of images">
+        <img [src]="i" (click)="gotoDetail(i)">
+    </ion-item>
+   </ion-row>
+   </ion-grid>
+
+ </ion-list>
+
+ <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+   <ion-infinite-scroll-content></ion-infinite-scroll-content>
+ </ion-infinite-scroll>
+</ion-content>

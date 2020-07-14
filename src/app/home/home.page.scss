@@ -1,0 +1,23 @@
+img {
+  width: 100%;
+  height: 200px;
+  margin-bottom: 20px;
+}
+
+@media (min-width: 320px){
+  ion-item {
+    width: 100%;
+  }
+}
+
+@media (min-width: 577px){
+  ion-item {
+    width: 50%;
+  }
+}
+
+@media (min-width: 768px){
+  ion-item {
+    width: 33.33%;
+  }
+}
