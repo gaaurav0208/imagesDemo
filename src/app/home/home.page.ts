@@ -1,4 +1,4 @@
-import { Component, OnInit, } from '@angular/core';
+import { Component, OnInit, ViewChild, } from '@angular/core';
 import { ImageService } from '../../services/image.service';
 import { IonInfiniteScroll, NavController } from '@ionic/angular';
 import { Router } from '@angular/router';
@@ -8,11 +8,12 @@ import { Router } from '@angular/router';
   styleUrls: ['home.page.scss']
 })
 export class HomePage implements OnInit {
+  @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
   galleryType = 'regular';
   images: any[];
   list: any;
   length = 0;
-  infiniteScroll: any;
+  //infiniteScroll: any;
    constructor(private router: Router, private imageService: ImageService, public navCtrl: NavController) {
 
 
@@ -35,6 +36,21 @@ export class HomePage implements OnInit {
         resolve();
       }, 500);
     })
+  }
+
+  loadData(event){
+    this.imageService.getImages().subscribe(data => {
+      data.pugs.forEach(element => {
+        this.images.push(element);
+      });
+      event.target.complete();
+
+      // App logic to determine if all data is loaded
+      // and disable the infinite scroll
+      if (this.images.length > 50) {
+        event.target.disabled = true;
+      }
+    });
   }
 
   getImages() {
