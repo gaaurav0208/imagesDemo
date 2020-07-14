@@ -1,6 +1,6 @@
 import { Component, OnInit, } from '@angular/core';
 import { ImageService } from '../../services/image.service';
-import { IonInfiniteScroll, NavController } from '@ionic/angular';
+import { NavController } from '@ionic/angular';
 import { Router } from '@angular/router';
 @Component({
   selector: 'page-home',
