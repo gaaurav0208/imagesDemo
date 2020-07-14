@@ -13,10 +13,7 @@ export class HomePage implements OnInit {
   images: any[];
   list: any;
   length = 0;
-  //infiniteScroll: any;
-   constructor(private router: Router, private imageService: ImageService, public navCtrl: NavController) {
-
-
+  constructor(private router: Router, private imageService: ImageService, public navCtrl: NavController) {
   }
 
   ngOnInit() {
