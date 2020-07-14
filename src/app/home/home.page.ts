@@ -14,33 +14,8 @@ export class HomePage implements OnInit {
   length = 0;
   infiniteScroll: any;
    constructor(private router: Router, private imageService: ImageService, public navCtrl: NavController) {
-
-
   }
 
-
-  private appendItems(number) {
-    console.log('length is', length);
-    const originalLength = length;
-    for (var i = 0; i < number; i++) {
-      const el = document.createElement('ion-item');
-      el.innerHTML = `
-        <ion-col col-6 col-md-4 col-xl-3>
-          <img src="${this.images[i]}" (click)="gotoDetail(${this.images[i]})">
-        </ion-col>
-      `;
-      this.list.appendChild(el);
-      this.length++;
-    }
-  }
-
-  private wait(time) {
-    return new Promise(resolve => {
-      setTimeout(() => {
-        resolve();
-      }, time);
-    });
-  }
 
   ngOnInit() {
     this.getImages();
