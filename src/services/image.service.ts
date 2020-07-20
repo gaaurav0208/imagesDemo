@@ -46,14 +46,4 @@ export class ImageService {
       catchError(this.handleError<any[]>("getanyes", []))
     );
   }
-
-  setImages(images) {
-    this.images = images;
-  }
-
-  getImage(index: number) {
-    if (index >= 0 && index < this.images.length) {
-      return this.images[index];
-    }
-  }
 }
